@@ -1,13 +1,20 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('title', 'Book Profile')
+@section('title', 'Autor Profile')
 
 
 @section('content')
-<h1>{{ $book->title }}</h1>
-<p>
-	{{ $book->year_public }}
-</p>
-<p>
-	{{ $book->price }}
-</p>
+<h1>{{ $autor->name }}</h1>
+<div class="form-group">
+	{{ $autor->born_date }}
+	<div class="col-md-2 control-label">
+	Date ot Born
+</div>
+</div>
+<div class="form-group">
+	{{ $autor->city }}
+	<div class="col-md-2 control-label">
+	City
+</div>
+</div>
+@endsection

@@ -25,7 +25,7 @@ class AutorController extends Controller
      */
     public function create()
     {
-       return view('autors.index');
+       return view('autors.create');
     }
 
     /**
@@ -36,7 +36,15 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+          $autor = Autor::create([
+                'name'       => $request['name'],                
+                'born_date'     => $request['born_date'], 
+                'city'           => $request['city'],
+                
+            ]);        
+            
+        return redirect()->route('autors.index')->withSuccess('Created');
     }
 
     /**
@@ -47,7 +55,8 @@ class AutorController extends Controller
      */
     public function show($id)
     {
-        //
+         $autor           = Autor::find($id);
+        return view('autors.show', compact('autor'));
     }
 
     /**
@@ -58,7 +67,8 @@ class AutorController extends Controller
      */
     public function edit($id)
     {
-        //
+         $autor = Autor::findOrFail($id);
+         return view('autors.edit', compact( 'autor'));
     }
 
     /**
@@ -70,7 +80,17 @@ class AutorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $autor = Autor::findOrFail($id);
+        $autor->name           = $request['name'];                
+        $autor->born_date      = $request['born_date'];
+        $autor->city           = $request['city'];
+        
+        $autor->save();
+        
+       
+    
+                       
+        return redirect()->route('autors.index')->withSuccess('Updated');
     }
 
     /**
@@ -81,6 +101,9 @@ class AutorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $autor = Autor::find($id);
+       
+        $autor->delete();
+        return redirect()->route('autors.index')->withSuccess('Deleted !');
     }
 }

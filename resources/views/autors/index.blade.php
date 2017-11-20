@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.app')
 @section('title','Autors')
 
 
@@ -41,7 +41,7 @@
 	@foreach($autors as $autor)
 	<tr>
 		<td>
-			<a href="{{route('autor.show', $autor->id)}}">
+			<a href="{{route('autors.show', $autor->id)}}">
 				{{ $autor->name }}				
 			</a>			
 		</td>

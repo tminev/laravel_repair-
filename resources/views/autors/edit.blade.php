@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.app')
 @section('title','Edit')
 
 
@@ -27,11 +27,11 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">
-						Student Form
+						 Form
 					</h3>
 				</div>
 				<div class="panel-body">					
-					<form action="{{ route('books.update', $book->id)}}" role="form" method="POST" class="form-horizontal">
+					<form action="{{ route('autors.update', $autor->id)}}" role="form" method="POST" class="form-horizontal">
 					<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="_method" value="PUT">
@@ -40,27 +40,27 @@
 						<div class="row">
 							<div class="col-md-8">
 								<div class="form-group">
-									<label for="title" class="col-md-2 control-label">
-										      Title      
+									<label for="name" class="col-md-2 control-label">
+										      Name      
 									</label>
 									<div class="col-md-10">
-										<input type="text"  class="form-control" name="title" id="name" value= "{{ $book->title }}">
+										<input type="text"  class="form-control" name="name" id="name" value= "{{ $autor->name }}">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="year_public" class="col-md-2 control-label">
-										Year public
+									<label for="born_date" class="col-md-2 control-label">
+										Born Date
 									</label>
 									<div class="col-md-10">
-										<input type="text" name="year_public"  class="form-control" id="from" value="{{ $book->year_public }}">
+										<input type="text" name="born_date"  class="form-control" id="born_date" value="{{ $autor->born_date }}">
 									</div>
 								</div>
 								<div class="form-group">
-									<label for="price" class="col-md-2 control-label">
-										Price
+									<label for="city" class="col-md-2 control-label">
+										City
 									</label>
 									<div class="col-md-10">
-										<input type="text" name="price"  class="form-control" id="price" value="{{ $book->price }}">
+										<input type="text" name="city"  class="form-control" id="city" value="{{ $autor->city }}">
 									</div>
 								</div>
 
@@ -75,7 +75,7 @@
 											<button type="submit" class="btn btn-primary btn-lg">
 												<i class="fa fa-disk-o">													
 												</i>
-												Save New Book
+												Save 
 											</button>
 										</div>
 									</div>

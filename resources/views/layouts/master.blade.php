@@ -11,6 +11,11 @@
 	
 </head>
 <body>
+	<ul>
+		<li> <a href="{{route('home')}}"> login </a> </li>
+		<li> <a href="{{route('autors.index')}}"> autors </a></li>
+		<li> <a href="{{route('books.index')}}"> books</a></li>
+	</ul>
 
 	
 

@@ -10,9 +10,22 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', 'AutorController@index');
-Route::get('autor', 'AutorController@show')->name('autor.show');
 
-Route::resource('autors', 'BookController');
-Route::resource('books', 'BookController');
+Route::group( ['middleware' => 'auth'] ,function(){ 
+	
+	Route::group( ['middleware' => 'admin'] ,function(){ 
+		Route::resource('autors', 'AutorController');
+	});
+
+	Route::get('/', 'AutorController@index');
+	Route::resource('books', 'BookController');
+	
+	Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+
+
+});
