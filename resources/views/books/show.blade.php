@@ -6,7 +6,7 @@
 @section('content')
 <h1>{{ $book->name }}</h1>
 <div class="form-group">
-	{{ $book->autor_id }}
+	{{ $book->autor->name}}
 	<div class="col-md-2 control-label">
 	Autor
 </div>
