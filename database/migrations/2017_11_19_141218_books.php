@@ -18,11 +18,7 @@ class Books extends Migration
             $table->integer('autor_id')->unsigned();
             $table->foreign('autor_id')->references('id')->on('Autors');
             $table->string('name');
-            $table->unsignedInteger('pages_read');
             $table->unsignedInteger('total_pages');
-            $table->unsignedInteger('speed');
-
-            
             $table->timestamps();
         });
     }
