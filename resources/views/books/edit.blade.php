@@ -55,8 +55,10 @@
 									</label>
 									<div class="col-md-10">
 										<select class="form-control m-bot15" name="autor_id">
+										<option value="{{ $book->autor->name}}" selected>{{ $book->autor->name}}</option>
          						  	@if($autors->count() > 0)
         						  		@foreach($autors as $autor)
+
         				   				<option value="{{$autor->id}}">{{$autor->name}}</option>
        							  		@endForeach
        								@else
