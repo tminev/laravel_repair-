@@ -7,7 +7,7 @@
 <div class="container">
 <div class="row">
 	<div class="col-md-6">
-		<h1>Users</h1>
+		<h1>Books</h1>
 	</div>	
 </div>
 @if(Session::has('success'))
@@ -23,13 +23,13 @@
 <table class="table">
 	<tr>
 		<td>
-			book Name
+			Book Name
 		</td>
 		<td>
-			Year Public
+			Autor
 		</td>
 		<td> 
-			Price
+			Total Pages
 		</td>
 		<td>
 			Edit
@@ -42,14 +42,14 @@
 	<tr>
 		<td>
 			<a href="{{route('books.show', $book->id)}}">
-				{{ $book->title }}				
+				{{ $book->name }}				
 			</a>			
 		</td>
 		<td>
-			{{ $book->year_public }}
+			{{ $book->autor_id}}
 		</td>
 		<td>
-			{{ $book->price }}
+			{{ $book->total_pages }}
 		</td>
 		<td>
 			<a href="{{ route('books.edit', $book->id) }}" class="btn btn-info">Edit</a>

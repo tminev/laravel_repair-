@@ -15,9 +15,9 @@ class Books extends Migration
     {
           Schema::create('Books', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
             $table->integer('autor_id')->unsigned();
             $table->foreign('autor_id')->references('id')->on('Autors');
-            $table->string('name');
             $table->unsignedInteger('total_pages');
             $table->timestamps();
         });

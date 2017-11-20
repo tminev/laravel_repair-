@@ -38,26 +38,38 @@
 							<div class="col-md-8">
 								<div class="form-group">
 									<label for="title" class="col-md-2 control-label">
-										 Title           
+										 Book Name          
 									</label>
 									<div class="col-md-10">
-										<input type="text"  class="form-control" name="title" id="title" value= "{{ old('title') }}">
+										<input type="text"  class="form-control" name="name" id="name" value= "{{ old('name') }}">
 									</div>
 								</div>
+
+
 								<div class="form-group">
-									<label for="year_public" class="col-md-2 control-label">
-										year_public
+									<label for="au" class="col-md-2 control-label">
+										Autor
 									</label>
 									<div class="col-md-10">
-										<input type="text" name="year_public"  class="form-control" id="year_public" value="{{ old('year_public') }}">
+										<select class="form-control m-bot15" name="autor_id">
+         						  	@if($autors->count() > 0)
+        						  		@foreach($autors as $autor)
+        				   				<option value="{{$autor->id}}">{{$autor->name}}</option>
+       							  		@endForeach
+       								@else
+       						    No Record Found
+       								@endif   
+       					 			</select>
 									</div>
 								</div>
+
+
 								<div class="form-group">
-									<label for=price" class="col-md-2 control-label">
-										Price
+									<label for=total_pages" class="col-md-2 control-label">
+										Total Pages
 									</label>
 									<div class="col-md-10">
-										<input type="price" name="price"  class="form-control" id="price" value="{{ old('price') }}">
+										<input type="total_pages" name="total_pages"  class="form-control" id="price" value="{{ old('total_pages') }}">
 									</div>
 								</div>
 

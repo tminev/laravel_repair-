@@ -10,11 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+
 Auth::routes();
 
 
 Route::group( ['middleware' => 'auth'] ,function(){ 
-	
+
 	Route::group( ['middleware' => 'admin'] ,function(){ 
 		Route::resource('autors', 'AutorController');
 	});
