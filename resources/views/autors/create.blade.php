@@ -24,9 +24,8 @@
 		{!!    Form::text('born_date', old('born_date') , ['class'=>'form-control', 'id'=>'born_date'])!!}
 	</div>
 </div>
+
 <div class="form-group">
-
-
 	<div class="col-md-2 control-label">
 		{!!	Form::label('city', 'City') !!}
 	</div>
@@ -35,15 +34,14 @@
 	</div>
 </div>
 <div class="form-group">
-
-
 	<div class="col-md-2 control-label">
-		{!!	Form::label('bio', 'bio') !!}
+		{!!	Form::label('bio', 'Bio') !!}
 	</div>
 	<div class="col-md-10">
 		{!!    Form::text('bio', old('bio'), ['class'=>'form-control', 'id'=>'bio']) !!}
 	</div>
 </div>
+
 {!!Form::submit('Save')!!}
 {!! Form::close() !!}
 

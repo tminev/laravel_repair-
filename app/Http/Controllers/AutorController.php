@@ -44,6 +44,7 @@ class AutorController extends Controller
                 'bio'           => $request['bio'],
                 
             ]);        
+
             
         return redirect()->route('autors.index')->withSuccess('Created');
     }

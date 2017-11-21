@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Autor extends Model
 {
         protected $fillable = [
-        'name', 'born_date','city',
+        'name', 'born_date','city', 'bio',
     ];
      public function Books(){
     	return $this->hasMany('App\Book');
