@@ -6,8 +6,8 @@
 @section('content')
 <div class="container">
 <div class="row">
-	<div class="col-md-6">
-		<h1>Books</h1>
+	<div class="col-md-8">
+		<h1>MY Books</h1>
 	</div>	
 </div>
 @if(Session::has('success'))
@@ -19,24 +19,38 @@
 	{{ Session::get('success') }}
 </div>
 @endif
-<div class="col-sm-6">
+<div class="col-sm-7">
 	<table class="table">
 		<tr>
 			<td>User Name</td>
 			<td>Book Name</td>
 			<td>Speed</td>
 			<td>Pages Read</td>
+			<td>Total Pages</td>
 			<td>Update</td>
+			<td>Delete</td>
 		</tr>
 		
 		@foreach($mybooks as $mybook)
 			<tr>
 				<td>{{ $mybook->user->name }}</td>
-				<td>{{ $mybook->book->name }}</td>
+				<td>
+					<a href="{{route('mybooks.show', $mybook->id)}}">{{ $mybook->book->name }}
+					</a>
+				</td>
 				<td>{{ $mybook->speed }}</td>
 				<td>{{ $mybook->pages_read }}</td>
-				<td>
-					<button  class="btn btn-info" type="submit" form="addbook" value="Submit">Update</button>
+				<td>{{ $mybook->book->total_pages }}</td>
+				<td> 
+					<a href="{{route('mybooks.edit', $mybook->id)}}"> Update</a>
+				</td>
+				<td> 
+					<form class="form form-inline" action="{{route('mybooks.destroy', $mybook->id)}}" method="POST">
+							{{ csrf_field() }}
+							{{ method_field('DELETE')}}
+							
+							<button class="btn btn-danger">DELETE</button>
+			</form>
 				</td>
 				
 			</tr>
@@ -46,7 +60,7 @@
 
 </div>
 
-<div class="col-sm-6">
+<div class="col-sm-5">
 
 	<form action="{{ route('mybooks.store')}}" role="form" method="POST" class="form-horizontal">
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">				

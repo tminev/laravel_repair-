@@ -27,11 +27,11 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">
-					BOOK Form
+					MY BOOK Form
 					</h3>
 				</div>
 				<div class="panel-body">					
-					<form action="{{ route('books.update', $book->id)}}" role="form" method="POST" class="form-horizontal">
+					<form action="{{ route('mybooks.update', $mybook->id)}}" role="form" method="POST" class="form-horizontal">
 				
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 						<input type="hidden" name="_method" value="PUT">
@@ -40,40 +40,23 @@
 						<div class="row">
 							<div class="col-md-8">
 								<div class="form-group">
-									<label for="title" class="col-md-2 control-label">
-										      Book Name      
+									<label for="speed" class="col-md-2 control-label">
+										      Speed      
 									</label>
 									<div class="col-md-10">
-										<input type="text"  class="form-control" name="name" id="name" value= "{{ $book->name }}">
+										<input type="text"  class="form-control" name="speed" id="speed" value= "{{ $mybook->speed }}">
 									</div>
 								</div>
 
 
-								<div class="form-group">
-									<label for="autor_id" class="col-md-2 control-label">
-										Autor
-									</label>
-									<div class="col-md-10">
-										<select class="form-control m-bot15" name="autor_id">
-										<option value="{{ $book->autor->name}}" selected>{{ $book->autor->name}}</option>
-         						  	@if($autors->count() > 0)
-        						  		@foreach($autors as $autor)
-
-        				   				<option value="{{$autor->id}}">{{$autor->name}}</option>
-       							  		@endForeach
-       								@else
-       						    No Record Found
-       								@endif   
-       					 				</select>
-									</div>
-								</div>
+								
 
 								<div class="form-group">
-									<label for="price" class="col-md-2 control-label">
-										Total Pages
+									<label for="pages_read" class="col-md-2 control-label">
+										Pages Read
 									</label>
 									<div class="col-md-10">
-										<input type="text" name="total_pages"  class="form-control" id="total_pages" value="{{ $book->total_pages }}">
+										<input type="text" name="pages_read"  class="form-control" id="pages_read" value="{{ $mybook->pages_read }}">
 									</div>
 								</div>
 
@@ -88,7 +71,7 @@
 											<button type="submit" class="btn btn-primary btn-lg">
 												<i class="fa fa-disk-o">													
 												</i>
-												Save New Book
+												Save Info
 											</button>
 										</div>
 									</div>

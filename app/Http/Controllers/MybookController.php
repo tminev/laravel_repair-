@@ -69,7 +69,8 @@ class MybookController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = Book::find($id);
+        return view('books.show', compact('book'));
     }
 
     /**
@@ -80,7 +81,8 @@ class MybookController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mybook =Mybook::findOrFail($id);
+        return view('mybooks.edit', compact('mybook'));
     }
 
     /**
@@ -92,7 +94,14 @@ class MybookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $mybook = Mybook::findOrFail($id);
+        $mybook->speed         = $request['speed'];                
+        $mybook->pages_read      = $request['pages_read'];
+        
+        
+        $mybook->save();
+                       
+        return redirect()->route('mybooks.index')->withSuccess('New Book Info is Added');
     }
 
     /**
@@ -103,6 +112,8 @@ class MybookController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $mybook = Mybook::find($id);
+        $mybook->delete();
+        return redirect()->route('mybooks.index')->withSuccess('BOOK deleted');
     }
 }

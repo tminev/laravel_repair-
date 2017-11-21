@@ -8,7 +8,7 @@ class Mybook extends Model
 {
 
 	 protected $fillable = [
-        'user_id', 'book_id',
+        'user_id', 'book_id','speed','pages_read',
     ];
      public function book(){
     	return $this->belongsTo('App\Book');

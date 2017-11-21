@@ -60,7 +60,7 @@
 							{{ method_field('DELETE')}}
 							
 							<button class="btn btn-danger">DELETE</button>
-						</form>
+			</form>
 		</td>
 	</tr>
 @endforeach
