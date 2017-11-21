@@ -30,6 +30,13 @@ class Books extends Migration
      */
     public function down()
     {
-        //
+         Schema::create('Books', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->integer('autor_id')->unsigned();
+            $table->foreign('autor_id')->references('id')->on('Autors');
+            $table->unsignedInteger('total_pages');
+            $table->timestamps();
+        });
     }
 }

@@ -1,5 +1,6 @@
 @extends('layouts.app')
-@section('title','Edit')
+@section('title','Create')
+
 
 
 
@@ -8,7 +9,7 @@
 	<div class="row page-title-row">
 		<div class="col-md-12">
 			<h3>
-				book <small>&raquo; Edit</small>
+				Book <small>&raquo; Add New Book</small>
 			</h3>
 
 		</div>
@@ -27,68 +28,59 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">
-					BOOK Form
+						Book Form
 					</h3>
 				</div>
 				<div class="panel-body">					
-					<form action="{{ route('books.update', $book->id)}}" role="form" method="POST" class="form-horizontal">
-				
+					<form action="{{ route('books.store')}}" role="form" method="POST" class="form-horizontal">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<input type="hidden" name="_method" value="PUT">
-						
-
 						<div class="row">
 							<div class="col-md-8">
 								<div class="form-group">
 									<label for="title" class="col-md-2 control-label">
-										      Book Name      
+										 Book Name          
 									</label>
 									<div class="col-md-10">
-										<input type="text"  class="form-control" name="name" id="name" value= "{{ $book->name }}">
+										<input type="text"  class="form-control" name="name" id="name" value= "{{ old('name') }}">
 									</div>
 								</div>
 
 
 								<div class="form-group">
-									<label for="autor_id" class="col-md-2 control-label">
+									<label for="au" class="col-md-2 control-label">
 										Autor
 									</label>
 									<div class="col-md-10">
 										<select class="form-control m-bot15" name="autor_id">
-										<option value="{{ $book->autor->id}}" selected>{{ $book->autor->name}}</option>
          						  	@if($autors->count() > 0)
         						  		@foreach($autors as $autor)
-
         				   				<option value="{{$autor->id}}">{{$autor->name}}</option>
        							  		@endForeach
        								@else
        						    No Record Found
        								@endif   
-       					 				</select>
+       					 			</select>
 									</div>
 								</div>
 
+
 								<div class="form-group">
-									<label for="total_pages" class="col-md-2 control-label">
+									<label for=total_pages" class="col-md-2 control-label">
 										Total Pages
 									</label>
 									<div class="col-md-10">
-										<input type="text" name="total_pages"  class="form-control" id="total_pages" value="{{ $book->total_pages }}">
+										<input type="total_pages" name="total_pages"  class="form-control" id="price" value="{{ old('total_pages') }}">
 									</div>
 								</div>
 
 								
-
-
-
-							
 								<div class="col-md-8">
 									<div class="form-group">
 										<div class="col-md-10 col-md-offset-2">
 											<button type="submit" class="btn btn-primary btn-lg">
 												<i class="fa fa-disk-o">													
 												</i>
-												Save New Book
+												Save New book
 											</button>
 										</div>
 									</div>

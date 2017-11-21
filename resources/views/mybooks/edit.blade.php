@@ -55,7 +55,7 @@
 									</label>
 									<div class="col-md-10">
 										<select class="form-control m-bot15" name="autor_id">
-										<option value="{{ $book->autor->id}}" selected>{{ $book->autor->name}}</option>
+										<option value="{{ $book->autor->name}}" selected>{{ $book->autor->name}}</option>
          						  	@if($autors->count() > 0)
         						  		@foreach($autors as $autor)
 
@@ -69,7 +69,7 @@
 								</div>
 
 								<div class="form-group">
-									<label for="total_pages" class="col-md-2 control-label">
+									<label for="price" class="col-md-2 control-label">
 										Total Pages
 									</label>
 									<div class="col-md-10">

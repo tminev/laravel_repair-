@@ -36,8 +36,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li> <a href="{{route('autors.index')}}"> autors </a></li>
+                        <li> <a href="{{route('autors.index')}}"> Autors </a></li>
                         <li> <a href="{{route('books.index')}}"> books</a></li>
+                        <li> <a href="{{route('mybooks.index')}}"> MY Books</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -18,6 +18,7 @@ class Autors extends Migration
             $table->string('name');
             $table->unsignedInteger('born_date');
             $table->string('city');
+            $table->string('bio');
             $table->timestamps();
         });
     }
@@ -34,6 +35,7 @@ class Autors extends Migration
             $table->string('name');
             $table->unsignedInteger('born_date');
             $table->string('city');
+            $table->string('bio');
             $table->timestamps();
         });
     }

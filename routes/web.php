@@ -21,11 +21,12 @@ Route::group( ['middleware' => 'auth'] ,function(){
 
 	Route::group( ['middleware' => 'admin'] ,function(){ 
 		Route::resource('autors', 'AutorController');
+
 	});
 
 	Route::get('/', 'AutorController@index');
 	Route::resource('books', 'BookController');
-	
+	Route::resource('mybooks', 'MybookController');
 	Route::get('/home', 'HomeController@index')->name('home');
 
 

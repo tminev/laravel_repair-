@@ -8,7 +8,7 @@
 	<div class="row page-title-row">
 		<div class="col-md-12">
 			<h3>
-				book <small>&raquo; Edit</small>
+				Author <small>&raquo; Edit</small>
 			</h3>
 
 		</div>
@@ -61,6 +61,14 @@
 									</label>
 									<div class="col-md-10">
 										<input type="text" name="city"  class="form-control" id="city" value="{{ $autor->city }}">
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="bio" class="col-md-2 control-label">
+										Bio
+									</label>
+									<div class="col-md-10">
+										<input type="text" name="bio"  class="form-control" id="bio" value="{{ $autor->bio }}">
 									</div>
 								</div>
 

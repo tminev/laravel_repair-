@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\Autor;
+use Illuminate\Support\Facades\DB;
+use App\Book;
+use App\Mybook;
 
-class AutorController extends Controller
+class MybookController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +17,16 @@ class AutorController extends Controller
      */
     public function index()
     {
-        $autors= Autor::all();
-        return view('autors.index' , compact('autors'));
+        $user = Auth::user()->id;
+        $mybooks = Mybook::where('user_id', $user)
+               ->get();
+
+
+ 
+         
+     $books=Book::all();
+     
+        return view('mybooks.index' , compact('books','mybooks'));
     }
 
     /**
@@ -25,7 +36,7 @@ class AutorController extends Controller
      */
     public function create()
     {
-       return view('autors.create');
+        //
     }
 
     /**
@@ -36,16 +47,18 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
-
-          $autor = Autor::create([
-                'name'          => $request['name'],                
-                'born_date'     => $request['born_date'], 
-                'city'          => $request['city'],
-                'bio'           => $request['bio'],
+        $user = Auth::user()->id;
+        
+        $mybook = Mybook::create([
+                'user_id'         => $user,                
+                'book_id'     => $request['book_id'], 
+               
                 
-            ]);        
-            
-        return redirect()->route('autors.index')->withSuccess('Created');
+            ]);
+        
+       
+           return redirect()->route('mybooks.index')->withSuccess('New Book Successfully Created');        
+        
     }
 
     /**
@@ -56,8 +69,7 @@ class AutorController extends Controller
      */
     public function show($id)
     {
-         $autor           = Autor::find($id);
-        return view('autors.show', compact('autor'));
+        //
     }
 
     /**
@@ -68,8 +80,7 @@ class AutorController extends Controller
      */
     public function edit($id)
     {
-         $autor = Autor::findOrFail($id);
-         return view('autors.edit', compact( 'autor'));
+        //
     }
 
     /**
@@ -81,17 +92,7 @@ class AutorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $autor = Autor::findOrFail($id);
-        $autor->name           = $request['name'];                
-        $autor->born_date      = $request['born_date'];
-        $autor->city           = $request['city'];
-        $autor->bio            = $request['bio'];
-        $autor->save();
-        
-       
-    
-                       
-        return redirect()->route('autors.index')->withSuccess('Updated');
+        //
     }
 
     /**
@@ -102,9 +103,6 @@ class AutorController extends Controller
      */
     public function destroy($id)
     {
-        $autor = Autor::find($id);
-       
-        $autor->delete();
-        return redirect()->route('autors.index')->withSuccess('Deleted !');
+        //
     }
 }

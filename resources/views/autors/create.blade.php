@@ -34,6 +34,16 @@
 		{!!    Form::text('city', old('city'), ['class'=>'form-control', 'id'=>'city']) !!}
 	</div>
 </div>
+<div class="form-group">
+
+
+	<div class="col-md-2 control-label">
+		{!!	Form::label('bio', 'bio') !!}
+	</div>
+	<div class="col-md-10">
+		{!!    Form::text('bio', old('bio'), ['class'=>'form-control', 'id'=>'bio']) !!}
+	</div>
+</div>
 {!!Form::submit('Save')!!}
 {!! Form::close() !!}
 

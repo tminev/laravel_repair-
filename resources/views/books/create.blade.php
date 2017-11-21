@@ -47,7 +47,7 @@
 
 
 								<div class="form-group">
-									<label for="au" class="col-md-2 control-label">
+									<label for="autor_id" class="col-md-2 control-label">
 										Autor
 									</label>
 									<div class="col-md-10">
@@ -69,7 +69,7 @@
 										Total Pages
 									</label>
 									<div class="col-md-10">
-										<input type="total_pages" name="total_pages"  class="form-control" id="price" value="{{ old('total_pages') }}">
+										<input type="text" name="total_pages"  class="form-control" id="total_pages" value="{{ old('total_pages') }}">
 									</div>
 								</div>
 
@@ -78,8 +78,7 @@
 									<div class="form-group">
 										<div class="col-md-10 col-md-offset-2">
 											<button type="submit" class="btn btn-primary btn-lg">
-												<i class="fa fa-disk-o">													
-												</i>
+												
 												Save New book
 											</button>
 										</div>
