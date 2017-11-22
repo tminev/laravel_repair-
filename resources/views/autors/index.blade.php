@@ -4,6 +4,7 @@
 
 
 @section('content')
+
 <div class="container">
 <div class="row">
 	<div class="col-md-6">
@@ -31,12 +32,14 @@
 		<td> 
 			City
 		</td>
+	@if( $user == 'admin')
 		<td>
 			Edit
 		</td>
 		<td>
 			Delete
 		</td>
+	@endif
 	</tr>
 	@foreach($autors as $autor)
 	<tr>
@@ -51,6 +54,7 @@
 		<td>
 			{{ $autor->city }}
 		</td>
+	@if( $user == 'admin')
 		<td>
 			<a href="{{ route('autors.edit', $autor->id) }}" class="btn btn-info">Edit</a>
 		</td>
@@ -62,14 +66,17 @@
 							<button class="btn btn-danger">DELETE</button>
 			</form>
 		</td>
+	@endif
 	</tr>
 @endforeach
 </table>
-<div class="row">
-	<div class="col-md-6">
-		<a href="{{ route('autors.create') }}" class="btn btn-info">New Autor</a>
+@if( $user == 'admin')
+	<div class="row">
+		<div class="col-md-6">
+			<a href="{{ route('autors.create') }}" class="btn btn-info">New Autor</a>
+		</div>
 	</div>
-</div>
+@endif
 </div>
 </div>
 @endsection

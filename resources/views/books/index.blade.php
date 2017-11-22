@@ -31,12 +31,14 @@
 		<td> 
 			Total Pages
 		</td>
+	@if( $user == 'admin')
 		<td>
 			Edit
 		</td>
 		<td>
 			Delete
 		</td>
+	@endif
 	</tr>
 	@foreach($books as $book)
 	<tr>
@@ -51,25 +53,29 @@
 		<td>
 			{{ $book->total_pages }}
 		</td>
-		<td>
-			<a href="{{ route('books.edit', $book->id) }}" class="btn btn-info">Edit</a>
-		</td>
-		<td>
-			<form class="form form-inline" action="{{route('books.destroy', $book->id)}}" method="POST">
-							{{ csrf_field() }}
-							{{ method_field('DELETE')}}
-							
-							<button class="btn btn-danger">DELETE</button>
-						</form>
-		</td>
+		@if( $user == 'admin')
+			<td>
+				<a href="{{ route('books.edit', $book->id) }}" class="btn btn-info">Edit</a>
+			</td>
+			<td>
+				<form class="form form-inline" action="{{route('books.destroy', $book->id)}}" method="POST">
+								{{ csrf_field() }}
+								{{ method_field('DELETE')}}
+								
+								<button class="btn btn-danger">DELETE</button>
+				</form>
+			</td>
+		@endif
 	</tr>
 @endforeach
 </table>
-<div class="row">
-	<div class="col-md-6">
-		<a href="{{ route('books.create') }}" class="btn btn-info">Add New Book</a>
+@if( $user == 'admin')
+	<div class="row">
+		<div class="col-md-6">
+			<a href="{{ route('books.create') }}" class="btn btn-info">Add New Book</a>
+		</div>
 	</div>
-</div>
+@endif
 </div>
 </div>
 @endsection
