@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Book;
@@ -16,8 +17,13 @@ class BookController extends Controller
      */
     public function index()
     {
+ 
         $user = Auth::user()->role;
-        $books=Book::all();
+        $books = DB::table('books')
+                
+                ->orderBy('name', 'asc')
+                ->get();
+
         return view('books.index' , compact('books','user'));
     }
 

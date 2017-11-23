@@ -48,7 +48,7 @@
 			</a>			
 		</td>
 		<td>
-			{{ $book->autor->name}}
+			{{ $book->autor_id}}
 		</td>
 		<td>
 			{{ $book->total_pages }}

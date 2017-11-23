@@ -10,6 +10,6 @@ class Autor extends Model
         'name', 'born_date','city', 'bio',
     ];
      public function Books(){
-    	return $this->hasMany('App\Book');
+    	return $this->hasOne('App\Book');
     }
 }
