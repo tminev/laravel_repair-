@@ -76,12 +76,8 @@
 										<input type="text" name="total_pages"  class="form-control" id="total_pages" value="{{ $book->total_pages }}">
 									</div>
 								</div>
-
-								
-
-
-
-							
+								<input type="text" name="old_autor"  class="form-control" id="old_autor" value="{{$book->autor->id}}">
+					
 								<div class="col-md-8">
 									<div class="form-group">
 										<div class="col-md-10 col-md-offset-2">

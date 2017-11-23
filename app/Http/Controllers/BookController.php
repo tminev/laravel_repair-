@@ -52,8 +52,6 @@ class BookController extends Controller
 
         $autor = Autor::findOrFail($request['autor_id']);
         $autor->count         = $autor->count+1 ;                
-        
-        
         $autor->save();
 
        
@@ -102,7 +100,19 @@ class BookController extends Controller
         $book->total_pages  = $request['total_pages'];
         
         $book->save();
-                       
+        if ($request['old_autor'] != $request['autor_id']) {
+          
+            $autor = Autor::findOrFail($request['autor_id']);
+            $autor->count         = $autor->count+1 ;                
+            $autor->save();
+
+            $old_autor = Autor::findOrFail($request['old_autor']);
+            $old_autor->count         = $old_autor->count-1 ;                
+            $old_autor->save(); 
+        }
+        
+
+
         return redirect()->route('books.index')->withSuccess('New book Successfully Updated');
     }
 

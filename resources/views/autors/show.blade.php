@@ -18,15 +18,19 @@
 	</div>
 </div>
 <div class="form-group">
-	{{ $autor->bio }}
-	<div class="col-md-2 control-label">
-	Bio
-	</div>
-</div>
-<div class="form-group">
 	{{ $autor->count }}
 	<div class="col-md-2 control-label">
 	Брой Книги
 	</div>
 </div>
+<div class="form-group">
+	
+	<div class="col-md-2 control-label">
+	Bio
+	</div>
+	<div class="col-md-9 control-label">
+	{{ $autor->bio }}
+	</div>
+</div>
+
 @endsection

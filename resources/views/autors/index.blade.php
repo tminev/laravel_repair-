@@ -32,6 +32,9 @@
 		<td> 
 			City
 		</td>
+		<td> 
+			Брой Книги
+		</td>
 	@if( $user == 'admin')
 		<td>
 			Edit
@@ -53,6 +56,9 @@
 		</td>
 		<td>
 			{{ $autor->city }}
+		</td>
+		<td>
+			{{ $autor->count }}
 		</td>
 	@if( $user == 'admin')
 		<td>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Autor;
@@ -15,8 +16,13 @@ class AutorController extends Controller
      */
     public function index()
     {
+
+        $autors = DB::table('autors')
+                ->orderBy('count', 'desc')
+                ->get();
+
         $user = Auth::user()->role;
-        $autors= Autor::all();
+        
         return view('autors.index' , compact('autors' , 'user'));
     }
 
