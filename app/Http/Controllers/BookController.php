@@ -49,11 +49,17 @@ class BookController extends Controller
                 'total_pages'  => $request['total_pages'],
                 
             ]);
+
+        $autor = Autor::findOrFail($request['autor_id']);
+        $autor->count         = $autor->count+1 ;                
         
+        
+        $autor->save();
+
        
         
             
-        return redirect()->route('books.index')->withSuccess('New Book Successfully Created');
+        return redirect()->route('books.index',compact('autor') )->withSuccess('New Book Successfully Created');
     }
 
     /**

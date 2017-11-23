@@ -23,4 +23,10 @@
 	Bio
 	</div>
 </div>
+<div class="form-group">
+	{{ $autor->count }}
+	<div class="col-md-2 control-label">
+	Брой Книги
+	</div>
+</div>
 @endsection
